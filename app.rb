@@ -25,6 +25,9 @@ end
 
 get '/post/:id' do
   @post = Post.find(params[:id])
+
+  @comments = Comment.all
+
   erb :post
 end
 
@@ -39,5 +42,15 @@ post '/new' do
   else
     @error = @p.errors.full_messages.first
     erb :new
+  end
+end
+
+post '/post/:id' do
+  @comment = Comment.new params[:comm]
+  if @comment.save
+    erb '<h2>Your comment added. Thank you.</h2>'
+  else
+    @posterror = @comment.errors.full_messages.first
+    erb :post
   end
 end
