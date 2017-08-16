@@ -14,13 +14,15 @@ class Comment < ActiveRecord::Base
 end
 
 get '/' do
-  erb 'Hello, world!'
+  @posts = Post.order('created_at DESC')
+  erb :index
 end
 
 get '/new' do
   @p = Post.new
   erb :new
 end
+
 
 
 # ==== POST ====
