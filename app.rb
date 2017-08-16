@@ -23,6 +23,11 @@ get '/new' do
   erb :new
 end
 
+get '/post/:id' do
+  @post = Post.find(params[:id])
+  erb :post
+end
+
 
 
 # ==== POST ====

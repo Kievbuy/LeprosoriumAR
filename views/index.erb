@@ -5,11 +5,12 @@
     <p>
       <%= post['content'] %>
       <br>
+    <p>---------------</p>
     <h6><%= post['author'] %></h6>
     <h6><%= post['created_at'] %></h6>
     </p>
     <br>
-    <a href="/details/<%= post['id'] %>">Read more...</a>
+    <a href="/post/<%= post['id'] %>">Read more...</a>
 
     <hr>
 <% end %>
